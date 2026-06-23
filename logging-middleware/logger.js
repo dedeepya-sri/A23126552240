@@ -7,11 +7,7 @@ const LOG_API_URL = process.env.LOG_API_URL.trim();
 
 async function Log(stack, level, pkg, message) {
     try {
-        console.log("URL =", LOG_API_URL);
-        console.log(
-            "AUTH HEADER =",
-            `Bearer ${ACCESS_TOKEN.substring(0,20)}...`
-        );
+        
         const response = await axios.post(
             LOG_API_URL,
             {
@@ -40,5 +36,4 @@ async function Log(stack, level, pkg, message) {
         return null;
     }
 }
-console.log("TOKEN LENGTH =", ACCESS_TOKEN.length);
 module.exports = { Log };
